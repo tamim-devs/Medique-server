@@ -264,7 +264,9 @@ app.get("/api/bookings/student/:studentId",
     });
   }
 });
-
+app.get("/", (req, res) => {
+  res.send("MediQue Server is running 🚀");
+});
 app.delete("/api/booking/:id", async (req, res) => {
   try {
     const { id } = req.params;
