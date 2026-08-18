@@ -105,6 +105,11 @@ async function run() {
   }
 });
 
+app.get('/api/featured',async(req,res)=>{
+  const result = await tutorCollection.find().limit(4).toArray()
+  res.json(result)
+})
+
     app.get("/api/tutor/:id", async (req, res) => {
       const { id } = req.params;
 
@@ -241,7 +246,7 @@ app.delete("/api/tutor/:id", verifyToken, async (req, res) => {
       message: "Failed to create booking",
     });
   }
-});
+}); 
 
 app.get("/api/bookings/student/:studentId", 
   verifyToken, 
